@@ -2,6 +2,7 @@
  * Created by lala on 16.07.2015.
  */
 var express = require('express');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -14,6 +15,14 @@ app.get('*', function(req, res) {
     res.render('index');
 });
 
-app.listen(process.env.PORT, process.env.IP);
-//app.listen(3000);
+mongoose.connect('mongodb://localhost/jobfinder');
+
+var con = mongoose.connection;
+
+con.once('open', function() {
+    console.log('connected to mongodb successfully!');
+});
+
+//app.listen(process.env.PORT, process.env.IP);
+app.listen(3000);
 
