@@ -37,6 +37,6 @@ con.once('open', function() {
 
 var port = 3000;
 
-//app.listen(process.env.PORT, process.env.IP);
-app.listen(port);
+app.listen(process.env.PORT, process.env.IP);
+//app.listen(port);
 
