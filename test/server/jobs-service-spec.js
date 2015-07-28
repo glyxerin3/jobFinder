@@ -7,6 +7,8 @@ var app = express();
 var expect = require('chai').expect;
 var request = require("supertest");
 
+var Promise = require("bluebird");
+
 var dataSavedJob;
 
 var db = {
@@ -19,7 +21,7 @@ var db = {
         dataSavedJob = job;
     }
 };
-var jobService = require("../../jobs-service")(db, app);
+var jobService = require("../../jobs-service.js")(db, app);
 
 describe('get jobs', function() {
     it("should give me a json list of jobs", function (done) {
